@@ -1,0 +1,25 @@
+.header {
+  padding: 1.7rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  max-width: 115px;
+  height: 40px;
+  object-fit: contain;
+}
+
+.nav ul {
+  display: flex;
+  gap: 1rem;
+}
+
+.nav li {
+  list-style: none;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  color: #7f7f7f;
+}

@@ -1,0 +1,43 @@
+.bannerContainer {
+  background-image: url("../../assets/images/hero.jpg");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+  height: 45vh;
+  margin: 0 1rem;
+  padding: 5rem;
+  font-family: "Montserrat", sans-serif;
+  box-shadow: 5px 10px 17px -7px rgba(0, 0, 0, 0.75);
+}
+
+.bannerDetailsDiv {
+  width: 50%;
+  text-align: center;
+}
+
+.bannerDetailsDiv img {
+  max-width: 40%;
+  min-width: 230px;
+  margin-bottom: 0.5rem;
+}
+
+.bannerDetailsDiv h5 {
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+}
+
+.bannerDetailsDiv a {
+  text-decoration: none;
+  color: black;
+  background-color: white;
+  padding: 0.5rem;
+  border-radius: 5px;
+  font-weight: bold;
+  transition: transform 0.2s;
+}
+
+.bannerDetailsDiv a:hover {
+  background-color: #054fbe;
+  color: white;
+  transform: scale(1.5);
+}
