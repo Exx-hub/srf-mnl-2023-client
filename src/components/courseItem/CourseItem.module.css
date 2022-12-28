@@ -25,7 +25,7 @@
 }
 
 .courseItem button {
-  background-color: #0149b5;
+  background-color: #0a51b0;
   color: white;
   border: none;
   padding: 0.4rem;
@@ -38,6 +38,5 @@
 }
 
 .courseItem button:hover {
-  background-color: white;
-  color: #0149b5;
+  background-color: #0568d2;
 }
