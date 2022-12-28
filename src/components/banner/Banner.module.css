@@ -3,7 +3,7 @@
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center;
-  height: 45vh;
+  height: 60vh;
   margin: 0 1rem;
   padding: 5rem;
   font-family: "Montserrat", sans-serif;
@@ -11,18 +11,20 @@
 }
 
 .bannerDetailsDiv {
-  width: 50%;
+  width: 100%;
   text-align: center;
+
+  /* border: 1px solid red; */
 }
 
 .bannerDetailsDiv img {
-  max-width: 40%;
-  min-width: 230px;
+  max-width: 37%;
+  min-width: 160px;
   margin-bottom: 0.5rem;
 }
 
 .bannerDetailsDiv h5 {
-  font-size: 1.2rem;
+  font-size: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -30,14 +32,50 @@
   text-decoration: none;
   color: black;
   background-color: white;
-  padding: 0.5rem;
+  padding: 0.3rem;
   border-radius: 5px;
   font-weight: bold;
+  font-size: 0.8rem;
   transition: transform 0.2s;
 }
 
 .bannerDetailsDiv a:hover {
   background-color: #054fbe;
   color: white;
-  transform: scale(1.5);
+}
+
+@media screen and (min-width: 768px) {
+  .bannerContainer {
+    height: 60vh;
+  }
+
+  .bannerDetailsDiv {
+    width: 50%;
+  }
+
+  .bannerDetailsDiv img {
+    min-width: 210px;
+  }
+
+  .bannerDetailsDiv h5 {
+    font-size: 1rem;
+  }
+
+  .bannerDetailsDiv a {
+    padding: 0.5rem;
+
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .bannerContainer {
+    height: 55vh;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .bannerContainer {
+    height: 45vh;
+  }
 }

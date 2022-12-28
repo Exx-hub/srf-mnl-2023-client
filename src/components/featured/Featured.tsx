@@ -7,15 +7,11 @@ import ride from "../../assets/images/rideWaves.jpg";
 function Featured() {
   return (
     <section className={styles.featuredGrid}>
-      <div>
-        <img src={book} alt="" />
-      </div>
-      <div>
-        <img src={find} alt="" />
-      </div>
-      <div>
-        <img src={ride} alt="" />
-      </div>
+      <img src={book} alt="" />
+
+      <img src={find} alt="" />
+
+      <img src={ride} alt="" />
     </section>
   );
 }
