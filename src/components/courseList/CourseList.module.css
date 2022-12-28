@@ -1,0 +1,27 @@
+.courseList {
+  padding: 1rem;
+}
+
+.courseList h2 {
+  text-align: center;
+  color: #545454;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+.coursesGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1rem;
+}
+
+@media screen and (min-width: 768px) {
+  .coursesGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media screen and (min-width: 1400px) {
+  .coursesGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}

@@ -1,0 +1,43 @@
+.courseItem {
+  padding: 1rem;
+  background-color: #e9ecef;
+  box-shadow: 5px 10px 17px -7px rgb(0 0 0 / 75%);
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.courseItem h3 {
+  margin-bottom: 0.5rem;
+}
+
+.courseItem p {
+  color: rgb(110, 110, 110);
+}
+
+.price {
+  align-self: flex-end;
+  margin-bottom: 0.5rem;
+  margin-top: 0.5rem;
+  color: #333 !important;
+  font-weight: bold;
+}
+
+.courseItem button {
+  background-color: #0149b5;
+  color: white;
+  border: none;
+  padding: 0.4rem;
+  border-radius: 5px;
+  width: 40%;
+  min-width: 100px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+}
+
+.courseItem button:hover {
+  background-color: white;
+  color: #0149b5;
+}

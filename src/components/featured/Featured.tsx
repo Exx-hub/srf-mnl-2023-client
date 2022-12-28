@@ -7,11 +7,18 @@ import ride from "../../assets/images/rideWaves.jpg";
 function Featured() {
   return (
     <section className={styles.featuredGrid}>
-      <img src={book} alt="" />
-
-      <img src={find} alt="" />
-
-      <img src={ride} alt="" />
+      <div className={styles.featuredItem}>
+        <img src={book} alt="" />
+        <h4>Find a Course</h4>
+      </div>
+      <div className={styles.featuredItem}>
+        <img src={find} alt="" />
+        <h4>Book a Course</h4>
+      </div>
+      <div className={styles.featuredItem}>
+        <img src={ride} alt="" />
+        <h4>Ride the waves</h4>
+      </div>
     </section>
   );
 }
