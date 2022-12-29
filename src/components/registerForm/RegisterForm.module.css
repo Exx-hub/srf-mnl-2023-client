@@ -1,0 +1,50 @@
+.registerForm {
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: center;
+  padding: 1.5rem;
+}
+
+.registerForm h2 {
+  font-weight: 500;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.form {
+  display: flex;
+  flex-direction: column;
+}
+
+.form input {
+  padding: 0.5rem;
+  margin: 0.5rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid lightgray;
+  font-size: 1.05rem;
+}
+
+.form input::placeholder {
+  font-weight: normal;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form button {
+  background-color: #0a51b0;
+  color: white;
+  border: none;
+  padding: 0.7rem;
+  font-size: 1rem;
+  border-radius: 5px;
+  width: 98%;
+  margin: 0 auto;
+  min-width: 100px;
+  cursor: pointer;
+  font-family: "Montserrat", sans-serif;
+}
+
+.form button:hover {
+  background-color: #0568d2;
+}
