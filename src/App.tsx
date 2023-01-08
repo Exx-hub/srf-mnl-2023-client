@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
+import ProtectedRoute from "./components/protectedRoute";
 import Courses from "./pages/Courses";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
@@ -12,11 +13,12 @@ function App() {
       <Route path="/" element={<Layout />}>
         <Route index element={<Home />} />
         <Route path="/courses" element={<Courses />} />
-        <Route path="/profile" element={<Profile />} />
         <Route path="/register" element={<Register />} />
         <Route path="/login" element={<Login />} />
 
-        {/* <Route element={<ProtectedRoutes />}></Route> */}
+        <Route element={<ProtectedRoute />}>
+          <Route path="/profile" element={<Profile />} />
+        </Route>
       </Route>
     </Routes>
   );

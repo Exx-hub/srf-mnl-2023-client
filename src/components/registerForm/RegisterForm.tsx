@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {
@@ -8,8 +9,10 @@ function RegisterForm() {
     mobile: "",
     email: "",
     password: "",
-    confirm: "",
+    confirmPassword: "",
   });
+
+  const navigate = useNavigate();
 
   // move logic to custom hook.
 
@@ -20,7 +23,30 @@ function RegisterForm() {
 
   const onRegister = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log(values);
+
+    fetch("http://localhost:8080/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(values),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        const { success, error, message } = data;
+        console.log(data);
+
+        if (success) {
+          console.log(message);
+          alert(message);
+          navigate("/login");
+        }
+
+        if (error) {
+          console.log(message);
+          alert(message);
+        }
+      });
   };
 
   return (
@@ -64,9 +90,9 @@ function RegisterForm() {
         />
         <input
           type="password"
-          name="confirm"
+          name="confirmPassword"
           placeholder="Confirm Password"
-          value={values.confirm}
+          value={values.confirmPassword}
           onChange={handleChange}
         />
         <button type="submit">Sign Me Up</button>
