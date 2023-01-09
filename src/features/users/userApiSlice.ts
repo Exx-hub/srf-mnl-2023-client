@@ -8,12 +8,20 @@ export const usersApiSlice = apiSlice.injectEndpoints({
         url: `/profile/${userId}`,
       }),
       transformResponse: (responseData: { data: IUser }) => {
-        console.log("responseData:", responseData);
+        console.log("getUser data:", responseData);
         return responseData;
       },
       providesTags: ["Users"],
     }),
+    enrollCourse: builder.mutation({
+      query: (courseId) => ({
+        url: "/enroll",
+        method: "POST",
+        body: { courseId },
+      }),
+      invalidatesTags: [{ type: "Users", id: "LIST" }],
+    }),
   }),
 });
 
-export const { useGetUserQuery } = usersApiSlice;
+export const { useGetUserQuery, useEnrollCourseMutation } = usersApiSlice;

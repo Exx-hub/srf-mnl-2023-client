@@ -8,8 +8,9 @@ function UserProfile() {
   const userId = useSelector(selectCurrentUserId);
 
   const { data, isLoading, isSuccess, isError } = useGetUserQuery(userId, {
-    pollingInterval: 1000 * 30,
+    pollingInterval: 1000 * 300,
     refetchOnFocus: true,
+    refetchOnMountOrArgChange: true,
   });
 
   if (isLoading) {
@@ -28,7 +29,7 @@ function UserProfile() {
       data?.data.courses.length > 0 ? (
         <ul>
           {data?.data.courses.map((course) => (
-            <li>{course}</li>
+            <li key={course}>{course}</li>
           ))}
         </ul>
       ) : (

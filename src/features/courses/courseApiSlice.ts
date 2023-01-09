@@ -7,7 +7,7 @@ export const coursesApiSlice = apiSlice.injectEndpoints({
         url: "/courses",
       }),
       transformResponse: (responseData: { data: any }) => {
-        console.log("responseData:", responseData);
+        console.log("coursesData:", responseData);
         return responseData;
       },
       providesTags: ["Courses"],

@@ -5,7 +5,7 @@ import { selectCurrentToken } from "../../features/auth/authSlice";
 function ProtectedRoute() {
   const token = useSelector(selectCurrentToken);
 
-  console.log(token);
+  // console.log(token);
 
   return token ? <Outlet /> : <Navigate to="/login" replace />;
 }

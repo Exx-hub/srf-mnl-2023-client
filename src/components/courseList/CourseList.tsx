@@ -37,10 +37,12 @@ const courses = [
 function CourseList() {
   const { data, isLoading, isSuccess, isError } = useGetCoursesQuery(
     "coursesList",
-    { pollingInterval: 1000 * 60, refetchOnFocus: true }
+    {
+      pollingInterval: 1000 * 300,
+      refetchOnFocus: true,
+      refetchOnMountOrArgChange: true,
+    }
   );
-
-  console.log(data);
 
   let content;
 
