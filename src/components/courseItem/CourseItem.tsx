@@ -1,10 +1,5 @@
+import { ICourse } from "../../types/interfaces";
 import styles from "./CourseItem.module.css";
-
-interface ICourse {
-  title: string;
-  description: string;
-  price: string;
-}
 
 interface CourseItemProps {
   course: ICourse;

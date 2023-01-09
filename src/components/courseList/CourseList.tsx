@@ -1,3 +1,5 @@
+import { useGetCoursesQuery } from "../../features/courses/courseApiSlice";
+import { ICourse } from "../../types/interfaces";
 import CourseItem from "../courseItem";
 import styles from "./CourseList.module.css";
 
@@ -12,14 +14,14 @@ const courses = [
   {
     title: "Paddling to the lineup",
     description:
-      "While paddling to the lineup keep in your mind the mental map of the spot. You should know how to avoid crashing waves that could knock you off. ",
+      "While paddling to the lineup keep in your mind the mental map of the spot. You should know how to avoid crashing waves that could knock you off.",
     price: "2500",
     id: 2,
   },
   {
     title: "Turning the board",
     description:
-      "So you're balanced and comfy on your board, riding down a wave's face. It's time to work on turning and maneuvering your board. ",
+      "So you're balanced and comfy on your board, riding down a wave's face. It's time to work on turning and maneuvering your board.",
     price: "3000",
     id: 3,
   },
@@ -33,14 +35,37 @@ const courses = [
 ];
 
 function CourseList() {
+  const { data, isLoading, isSuccess, isError } = useGetCoursesQuery(
+    "coursesList",
+    { pollingInterval: 1000 * 60, refetchOnFocus: true }
+  );
+
+  console.log(data);
+
+  let content;
+
+  if (isLoading) {
+    content = <h2>Fetching Resources --spinner here...</h2>;
+  }
+
+  if (isError) {
+    content = <h2>Something went wrong, please refresh the page.</h2>;
+  }
+
+  if (isSuccess) {
+    content = (
+      <div className={styles.coursesGrid}>
+        {data?.data.map((course: ICourse) => (
+          <CourseItem key={course._id} course={course} />
+        ))}
+      </div>
+    );
+  }
+
   return (
     <section className={styles.courseList}>
       <h2>Courses Offered:</h2>
-      <div className={styles.coursesGrid}>
-        {courses.map((course) => (
-          <CourseItem key={course.id} course={course} />
-        ))}
-      </div>
+      {content}
     </section>
   );
 }

@@ -10,10 +10,10 @@ export interface IUser {
 }
 
 export interface ICourse {
-  name: string;
+  title: string;
   description: string;
   price: number;
   isActive: boolean;
   createdOn: Date;
-  //   enrollees: []; // research on this
+  _id: string;
 }
