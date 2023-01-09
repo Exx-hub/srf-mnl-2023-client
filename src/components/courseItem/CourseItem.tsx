@@ -1,3 +1,6 @@
+import { useSelector } from "react-redux";
+import { Link } from "react-router-dom";
+import { selectCurrentToken } from "../../features/auth/authSlice";
 import { useEnrollCourseMutation } from "../../features/users/userApiSlice";
 import { ICourse } from "../../types/interfaces";
 import styles from "./CourseItem.module.css";
@@ -8,6 +11,7 @@ interface CourseItemProps {
 
 function CourseItem({ course }: CourseItemProps) {
   const { title, description, price, _id } = course;
+  const token = useSelector(selectCurrentToken);
 
   const [enrollCourse, { isLoading, isError, isSuccess }] =
     useEnrollCourseMutation();
@@ -20,12 +24,21 @@ function CourseItem({ course }: CourseItemProps) {
       console.log(err);
     }
   };
+
+  const buttonContent = token ? (
+    <button onClick={() => onAddCourseClick(_id)}>Add Course</button>
+  ) : (
+    <h4>
+      Please <Link to={"/login"}>login</Link> to add courses.
+    </h4>
+  );
+
   return (
     <section className={styles.courseItem}>
       <h3>{title}</h3>
       <p>{description}</p>
       <p className={styles.price}>₱{price}</p>
-      <button onClick={() => onAddCourseClick(_id)}>Add Course</button>
+      {buttonContent}
     </section>
   );
 }

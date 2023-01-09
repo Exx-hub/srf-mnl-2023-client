@@ -2,6 +2,7 @@ import { useSelector } from "react-redux";
 import { Link, Navigate } from "react-router-dom";
 import { selectCurrentUserId } from "../../features/auth/authSlice";
 import { useGetUserQuery } from "../../features/users/userApiSlice";
+import { ICourse } from "../../types/interfaces";
 import styles from "./UserProfile.module.css";
 
 function UserProfile() {
@@ -28,8 +29,8 @@ function UserProfile() {
     enrolledCourses =
       data?.data.courses.length > 0 ? (
         <ul>
-          {data?.data.courses.map((course) => (
-            <li key={course}>{course}</li>
+          {data?.data.courses.map((course: ICourse) => (
+            <li key={course._id}>{course.title}</li>
           ))}
         </ul>
       ) : (
