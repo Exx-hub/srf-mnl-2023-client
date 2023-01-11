@@ -17,3 +17,8 @@ export interface ICourse {
   createdOn: Date;
   _id: string;
 }
+
+export interface LoginValidateValues {
+  email: string;
+  password: string;
+}

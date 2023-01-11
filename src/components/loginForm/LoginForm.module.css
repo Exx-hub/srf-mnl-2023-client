@@ -54,3 +54,8 @@
   color: #119fff;
   font-size: 0.9rem;
 }
+
+.loginForm small {
+  color: red;
+  margin-bottom: 10px;
+}
