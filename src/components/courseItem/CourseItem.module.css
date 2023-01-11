@@ -41,3 +41,8 @@
 .courseItem button:hover {
   background-color: #0568d2;
 }
+
+.courseItem button:disabled {
+  background-color: lightgray;
+  cursor: not-allowed;
+}

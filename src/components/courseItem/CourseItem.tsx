@@ -7,14 +7,17 @@ import styles from "./CourseItem.module.css";
 interface CourseItemProps {
   course: ICourse;
   onAddCourseClick: (course: ICourse) => void;
+  modalOpen: boolean;
 }
 
-function CourseItem({ course, onAddCourseClick }: CourseItemProps) {
+function CourseItem({ course, onAddCourseClick, modalOpen }: CourseItemProps) {
   const { title, description, price } = course;
   const token = useSelector(selectCurrentToken);
 
   const buttonContent = token ? (
-    <button onClick={() => onAddCourseClick(course)}>Add Course</button>
+    <button disabled={modalOpen} onClick={() => onAddCourseClick(course)}>
+      Add Course
+    </button>
   ) : (
     <h4>
       Please <Link to={"/login"}>login</Link> to add courses.

@@ -73,6 +73,7 @@ function CourseList() {
             key={course._id}
             course={course}
             onAddCourseClick={onAddCourseClick}
+            modalOpen={modalOpen}
           />
         ))}
       </div>
