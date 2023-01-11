@@ -46,6 +46,7 @@ function CourseList() {
 
   // i think this is an example of state batching
   const onAddCourseClick = (course: ICourse) => {
+    window.scrollTo(0, 0);
     setSelectedCourse(course);
     setModalOpen(true);
   };
