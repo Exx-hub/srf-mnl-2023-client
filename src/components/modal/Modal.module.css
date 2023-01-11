@@ -1,0 +1,70 @@
+.modalContainer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  background-color: white;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  padding: 1rem;
+
+  box-shadow: 5px 10px 17px -7px rgb(0 0 0 / 75%);
+}
+
+.modalDetails {
+  padding: 1rem;
+}
+
+.modalDetails h4 {
+  font-size: 1.1rem;
+  font-weight: normal;
+  font-style: italic;
+}
+
+.modalDetails h2 {
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.modalDetails p {
+  text-align: right;
+}
+.modalButtons {
+  padding: 1rem;
+  margin: 0 auto;
+}
+
+.btn {
+  border: none;
+  padding: 0.4rem;
+  border-radius: 5px;
+  width: 40%;
+  min-width: 100px;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  font-family: "Montserrat", sans-serif;
+}
+
+.btnCancel {
+  background-color: lightgray;
+  color: black;
+  margin-right: 0.5rem;
+}
+.btnConfirm {
+  background-color: #0a51b0;
+  color: white;
+  margin-left: 0.5rem;
+}
+
+.btnConfirm:hover {
+  background-color: #0568d2;
+}
+
+.btnCancel:hover {
+  background-color: rgb(227, 227, 227);
+}
