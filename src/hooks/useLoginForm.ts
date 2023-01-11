@@ -26,10 +26,10 @@ export const useLoginForm = () => {
   const onSignIn = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    const errors = await loginValidate(values);
-    setErrors(errors);
+    const validationErrors = await loginValidate(values);
+    setErrors(validationErrors);
 
-    if (!errors.email && !errors.password) {
+    if (!validationErrors.email && !validationErrors.password) {
       try {
         const data = await login({
           email: values.email,

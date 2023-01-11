@@ -1,53 +1,8 @@
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { useRegisterForm } from "../../hooks/useRegisterForm";
 import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {
-  const [values, setValues] = useState({
-    firstname: "",
-    lastname: "",
-    mobile: "",
-    email: "",
-    password: "",
-    confirmPassword: "",
-  });
-
-  const navigate = useNavigate();
-
-  // move logic to custom hook.
-
-  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const { name, value } = e.target;
-    setValues({ ...values, [name]: value });
-  };
-
-  const onRegister = (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-
-    fetch("http://localhost:8080/register", {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify(values),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        const { success, error, message } = data;
-        console.log(data);
-
-        if (success) {
-          console.log(message);
-          alert(message);
-          navigate("/login");
-        }
-
-        if (error) {
-          console.log(message);
-          alert(message);
-        }
-      });
-  };
+  const { onRegister, values, handleChange, errors } = useRegisterForm();
 
   return (
     <section className={styles.registerForm}>
@@ -60,6 +15,7 @@ function RegisterForm() {
           value={values.firstname}
           onChange={handleChange}
         />
+        {errors.firstname && <small>{errors.firstname}</small>}
         <input
           type="text"
           name="lastname"
@@ -67,6 +23,7 @@ function RegisterForm() {
           value={values.lastname}
           onChange={handleChange}
         />
+        {errors.lastname && <small>{errors.lastname}</small>}
         <input
           type="text"
           name="mobile"
@@ -74,6 +31,7 @@ function RegisterForm() {
           value={values.mobile}
           onChange={handleChange}
         />
+        {errors.mobile && <small>{errors.mobile}</small>}
         <input
           type="text"
           name="email"
@@ -81,6 +39,7 @@ function RegisterForm() {
           value={values.email}
           onChange={handleChange}
         />
+        {errors.email && <small>{errors.email}</small>}
         <input
           type="password"
           name="password"
@@ -88,6 +47,7 @@ function RegisterForm() {
           value={values.password}
           onChange={handleChange}
         />
+        {errors.password && <small>{errors.password}</small>}
         <input
           type="password"
           name="confirmPassword"
@@ -95,6 +55,7 @@ function RegisterForm() {
           value={values.confirmPassword}
           onChange={handleChange}
         />
+        {errors.confirmPassword && <small>{errors.confirmPassword}</small>}
         <button type="submit">Sign Me Up</button>
       </form>
     </section>

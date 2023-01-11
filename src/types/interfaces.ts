@@ -22,3 +22,14 @@ export interface LoginValidateValues {
   email: string;
   password: string;
 }
+
+export interface RegisterValues {
+  firstname: string;
+  lastname: string;
+  mobile: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+}
+
+export type CourseIdType = string | undefined;

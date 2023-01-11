@@ -16,7 +16,7 @@ function LoginForm() {
           value={values.email}
           onChange={handleChange}
         />
-        {errors.email && <small>Email is required.</small>}
+        {errors.email && <small>{errors.email}</small>}
         <input
           type="password"
           name="password"
@@ -24,7 +24,7 @@ function LoginForm() {
           value={values.password}
           onChange={handleChange}
         />
-        {errors.password && <small>Password is required.</small>}
+        {errors.password && <small>{errors.password}</small>}
         <button type="submit">Sign In</button>
       </form>
       <Link to="/register">Not yet registered? Sign up now!</Link>
