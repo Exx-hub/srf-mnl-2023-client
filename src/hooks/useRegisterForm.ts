@@ -4,7 +4,7 @@ import { useRegisterMutation } from "../features/users/userApiSlice";
 import { registerValidate } from "../helpers/registerValidate";
 import { RegisterValues } from "../types/interfaces";
 
-export const useRegisterForm = () => {
+const useRegisterForm = () => {
   const [values, setValues] = useState({
     firstname: "",
     lastname: "",
@@ -51,3 +51,5 @@ export const useRegisterForm = () => {
 
   return { values, errors, handleChange, onRegister };
 };
+
+export default useRegisterForm;

@@ -1,7 +1,7 @@
 import Banner from "../components/banner";
 import whiteSchool from "../assets/images/whiteSchool.jpg";
 import CourseList from "../components/courseList";
-import { useTitle } from "../hooks/useTitle";
+import useTitle from "../hooks/useTitle";
 
 function Courses() {
   useTitle("SRF MNL - Courses");

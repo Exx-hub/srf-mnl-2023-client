@@ -46,6 +46,10 @@
     letter-spacing: 2px;
     font-size: 0.9rem;
   }
+
+  .nav .active a {
+    color: #333;
+  }
 }
 
 @media screen and (min-width: 1200px) {

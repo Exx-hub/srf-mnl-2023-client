@@ -1,5 +1,5 @@
 import UserProfile from "../components/userProfile";
-import { useTitle } from "../hooks/useTitle";
+import useTitle from "../hooks/useTitle";
 
 function Profile() {
   useTitle("SRF MNL - Profile");

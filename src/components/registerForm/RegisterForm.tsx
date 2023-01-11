@@ -1,4 +1,4 @@
-import { useRegisterForm } from "../../hooks/useRegisterForm";
+import useRegisterForm from "../../hooks/useRegisterForm";
 import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {

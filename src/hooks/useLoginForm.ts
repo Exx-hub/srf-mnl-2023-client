@@ -6,7 +6,7 @@ import { storeCredentials } from "../features/auth/authSlice";
 import { loginValidate } from "../helpers/loginValidate";
 import { LoginValidateValues } from "../types/interfaces";
 
-export const useLoginForm = () => {
+const useLoginForm = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const [values, setValues] = useState({
@@ -48,3 +48,5 @@ export const useLoginForm = () => {
 
   return { values, handleChange, onSignIn, errors };
 };
+
+export default useLoginForm;
