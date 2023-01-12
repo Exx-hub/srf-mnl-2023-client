@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
+import { ToastContainer } from "react-toastify";
 import useLoginForm from "../../hooks/useLoginForm";
 import styles from "./LoginForm.module.css";
 
 function LoginForm() {
-  const { onSignIn, values, handleChange, errors } = useLoginForm();
+  const { onSignIn, values, handleChange, errors, loginLoading } =
+    useLoginForm();
 
   return (
     <section className={styles.loginForm}>
@@ -25,7 +27,9 @@ function LoginForm() {
           onChange={handleChange}
         />
         {errors.password && <small>{errors.password}</small>}
-        <button type="submit">Sign In</button>
+        <button type="submit">
+          {loginLoading ? "Please Wait..." : "Sign In"}
+        </button>
       </form>
       <Link to="/register">Not yet registered? Sign up now!</Link>
     </section>

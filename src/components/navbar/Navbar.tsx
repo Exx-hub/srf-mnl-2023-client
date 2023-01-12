@@ -4,10 +4,21 @@ import { GrClose, GrMenu } from "react-icons/gr";
 import { Link, useLocation } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../hooks/useToken";
+import { useDispatch } from "react-redux";
+import { clearCredentials } from "../../features/auth/authSlice";
+import { toast } from "react-toastify";
 
 function Navbar() {
   const { pathname } = useLocation();
   const authenticated = useAuth();
+
+  const dispatch = useDispatch();
+
+  const logout = () => {
+    localStorage.removeItem("user");
+    dispatch(clearCredentials());
+    toast("Successfully logged-out.");
+  };
 
   return (
     <header className={styles.header}>
@@ -39,8 +50,8 @@ function Navbar() {
             </li>
           )}
           {authenticated && (
-            <li>
-              <Link to="/profile">Logout</Link>
+            <li onClick={logout}>
+              <Link to="/login">Logout</Link>
             </li>
           )}
         </ul>

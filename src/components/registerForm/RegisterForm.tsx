@@ -2,7 +2,8 @@ import useRegisterForm from "../../hooks/useRegisterForm";
 import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {
-  const { onRegister, values, handleChange, errors } = useRegisterForm();
+  const { onRegister, values, handleChange, errors, loading } =
+    useRegisterForm();
 
   return (
     <section className={styles.registerForm}>
@@ -56,7 +57,9 @@ function RegisterForm() {
           onChange={handleChange}
         />
         {errors.confirmPassword && <small>{errors.confirmPassword}</small>}
-        <button type="submit">Sign Me Up</button>
+        <button type="submit">
+          {loading ? "Please Wait..." : "Sign Me Up"}
+        </button>
       </form>
     </section>
   );

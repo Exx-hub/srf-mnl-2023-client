@@ -11,6 +11,7 @@ import {
 } from "react-router-dom";
 import { Provider } from "react-redux";
 import { store } from "./app/store";
+import Toast from "./components/toast";
 
 const root = ReactDOM.createRoot(
   document.getElementById("root") as HTMLElement
@@ -23,6 +24,7 @@ root.render(
           <Route path="/*" element={<App />} />
         </Routes>
       </BrowserRouter>
+      <Toast />
     </Provider>
   </React.StrictMode>
 );

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useRegisterMutation } from "../features/users/userApiSlice";
 import { registerValidate } from "../helpers/registerValidate";
 import { RegisterValues } from "../types/interfaces";
@@ -14,10 +15,11 @@ const useRegisterForm = () => {
     confirmPassword: "",
   });
 
+  const [loading, setLoading] = useState(false);
+
   const [errors, setErrors] = useState({} as RegisterValues);
 
-  const [register, { isLoading, isSuccess, isError, error }] =
-    useRegisterMutation();
+  const [register] = useRegisterMutation();
 
   const navigate = useNavigate();
 
@@ -29,6 +31,8 @@ const useRegisterForm = () => {
   const onRegister = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    setLoading(true);
+
     const validationErrors = await registerValidate(values);
     setErrors(validationErrors);
 
@@ -39,17 +43,21 @@ const useRegisterForm = () => {
     if (Object.keys(validationErrors).length === 0) {
       try {
         const data = await register(values).unwrap();
+
+        setLoading(false);
+        toast("Successfully Signed-up.");
         navigate("/login");
-        console.log(data);
-        console.log("SUCCESS");
       } catch (err: any) {
         console.log(err); // error object and message here
-        console.log("ERROR");
+        setLoading(false);
+        toast.warn("Email already taken.", {
+          autoClose: 2000,
+        });
       }
     }
   };
 
-  return { values, errors, handleChange, onRegister };
+  return { values, errors, handleChange, onRegister, loading };
 };
 
 export default useRegisterForm;

@@ -27,7 +27,7 @@ function Modal({ course, addCourse, onCancel, enrollLoading }: ModalProps) {
           className={`${styles.btn} ${styles.btnConfirm}`}
           onClick={() => addCourse(course?._id)}
         >
-          {enrollLoading ? "Spinner" : "Confirm"}
+          {enrollLoading ? "Loading.." : "Confirm"}
         </button>
       </div>
     </div>

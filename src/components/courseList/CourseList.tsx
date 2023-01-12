@@ -1,10 +1,12 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 import { useGetCoursesQuery } from "../../features/courses/courseApiSlice";
 import { useEnrollCourseMutation } from "../../features/users/userApiSlice";
 import { ICourse } from "../../types/interfaces";
 import CourseItem from "../courseItem";
 import Modal from "../modal";
+import Spinner from "../spinner";
 import styles from "./CourseList.module.css";
 
 function CourseList() {
@@ -34,11 +36,15 @@ function CourseList() {
   const addCourse = async (courseId: string | undefined) => {
     try {
       await enrollCourse(courseId).unwrap();
-      alert("course enrolled!");
+      toast("Course Added Successfully!", {
+        autoClose: 2000,
+      });
       navigate("/profile");
     } catch (err) {
       console.log(err);
-      alert("Duplicate course or something went wrong.");
+      toast.warn("Duplicate course or something went wrong.", {
+        autoClose: 2000,
+      });
       setModalOpen(false);
       setSelectedCourse(null);
     }
@@ -59,7 +65,12 @@ function CourseList() {
   let content;
 
   if (isLoading) {
-    content = <h2>Fetching Resources --spinner here...</h2>;
+    content = (
+      <>
+        <h2>Fetching Resources. Please wait...</h2>
+        <Spinner />
+      </>
+    );
   }
 
   if (isError) {
