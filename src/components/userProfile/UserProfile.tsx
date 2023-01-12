@@ -15,44 +15,55 @@ function UserProfile() {
     refetchOnMountOrArgChange: true,
   });
 
-  // if (isLoading) {
+  if (isLoading) {
+    return (
+      <>
+        <h2>Fetching Data. Please wait...</h2>
+        <Spinner />
+      </>
+    );
+  }
+
+  if (isError) {
+    return <Navigate to="/login" replace />;
+  }
+
+  // console.log(data);
+
+  let enrolledCourses;
+  if (isSuccess) {
+    enrolledCourses =
+      data?.data.courses.length > 0 ? (
+        <ul>
+          {data?.data.courses.map((course: ICourse) => (
+            <li key={course._id}>{course.title}</li>
+          ))}
+        </ul>
+      ) : (
+        <h2>No Courses enrolled.</h2>
+      );
+  }
   return (
-    <>
-      <h2>Fetching Data. Please wait...</h2>
-      <Spinner />
-    </>
+    <section className={styles.userContainer}>
+      <div className={styles.userWrapper}>
+        <h2>User Info</h2>
+        <h3>
+          Name:
+          <span>
+            {data?.data.firstname} {data?.data.lastname}
+          </span>
+        </h3>
+        <h3>
+          Email: <span> {data?.data.email}</span>
+        </h3>
+        <h3>
+          Mobile: <span> {data?.data.mobile}</span>
+        </h3>
+        <h2>Enrolled Courses:</h2>
+        {enrolledCourses}
+      </div>
+    </section>
   );
-  // }
-
-  // if (isError) {
-  //   return <Navigate to="/login" replace />;
-  // }
-
-  // // console.log(data);
-
-  // let enrolledCourses;
-  // if (isSuccess) {
-  //   enrolledCourses =
-  //     data?.data.courses.length > 0 ? (
-  //       <ul>
-  //         {data?.data.courses.map((course: ICourse) => (
-  //           <li key={course._id}>{course.title}</li>
-  //         ))}
-  //       </ul>
-  //     ) : (
-  //       <h2>No Courses enrolled.</h2>
-  //     );
-  // }
-  // return (
-  //   <section>
-  //     <h2>User Profile</h2>
-  //     <h3>Name: {data?.data.firstname}</h3>
-  //     <h3>Email: {data?.data.email}</h3>
-  //     <h3>Mobile: {data?.data.mobile}</h3>
-  //     <h3>Enrolled Courses:</h3>
-  //     {enrolledCourses}
-  //   </section>
-  // );
 }
 
 export default UserProfile;

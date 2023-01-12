@@ -13,6 +13,8 @@
   padding: 1rem;
 
   box-shadow: 5px 10px 17px -7px rgb(0 0 0 / 75%);
+
+  animation: fade-in 200ms ease-out;
 }
 
 .modalDetails {
@@ -70,76 +72,22 @@
   background-color: rgb(227, 227, 227);
 }
 
-/* @media screen and (min-width: 768px) {
-  .modalContainer {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-
-    background-color: white;
-
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-
-    padding: 1rem;
-
-    box-shadow: 5px 10px 17px -7px rgb(0 0 0 / 75%);
+@keyframes fade-in {
+  0% {
+    opacity: 0;
   }
 
-  .modalDetails {
-    padding: 1rem;
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fade-out {
+  0% {
+    opacity: 1;
   }
 
-  .modalDetails h4 {
-    font-size: 1.1rem;
-    font-weight: normal;
-    font-style: italic;
+  100% {
+    opacity: 0;
   }
-
-  .modalDetails h2 {
-    margin-bottom: 1rem;
-    margin-top: 1rem;
-  }
-
-  .modalDetails p {
-    text-align: right;
-  }
-  .modalButtons {
-    padding: 1rem;
-    margin: 0 auto;
-    display: flex;
-  }
-
-  .btn {
-    border: none;
-    padding: 0.4rem;
-    border-radius: 5px;
-    width: 40%;
-    min-width: 100px;
-    cursor: pointer;
-    font-weight: bold;
-    text-transform: uppercase;
-    font-family: "Montserrat", sans-serif;
-  }
-
-  .btnCancel {
-    background-color: lightgray;
-    color: black;
-    margin-right: 0.5rem;
-  }
-  .btnConfirm {
-    background-color: #0a51b0;
-    color: white;
-    margin-left: 0.5rem;
-  }
-
-  .btnConfirm:hover {
-    background-color: #0568d2;
-  }
-
-  .btnCancel:hover {
-    background-color: rgb(227, 227, 227);
-  }
-} */
+}

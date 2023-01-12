@@ -1,0 +1,27 @@
+.userContainer {
+  max-width: 800px;
+  margin: 0 auto;
+  height: 83vh;
+}
+
+.userWrapper {
+  width: 50%;
+  margin: 0 auto;
+}
+
+.userContainer h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+.userContainer span {
+  color: black;
+  font-weight: normal;
+  margin-left: 1rem;
+}
+
+.userContainer li {
+  list-style: none;
+  margin-bottom: 0.5rem;
+}

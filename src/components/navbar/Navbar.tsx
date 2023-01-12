@@ -9,6 +9,7 @@ import { clearCredentials } from "../../features/auth/authSlice";
 import { toast } from "react-toastify";
 
 function Navbar() {
+  const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
   const authenticated = useAuth();
 
@@ -21,41 +22,82 @@ function Navbar() {
   };
 
   return (
-    <header className={styles.header}>
-      <img className={styles.logo} src={whiteLogo} alt="" />
+    <header>
+      <section className={styles.header}>
+        <img className={styles.logo} src={whiteLogo} alt="" />
 
-      <GrMenu className={styles.menuIcon} />
+        <div className={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
+          {menuOpen ? <GrClose /> : <GrMenu />}
+        </div>
 
-      <nav className={styles.nav}>
-        <ul>
-          <li className={pathname === "/" ? `${styles.active}` : ``}>
-            <Link to="/">Home</Link>
-          </li>
-          <li className={pathname === "/courses" ? `${styles.active}` : ``}>
-            <Link to="/courses">Courses</Link>
-          </li>
-          {authenticated && (
-            <li className={pathname === "/profile" ? `${styles.active}` : ``}>
-              <Link to="/profile">Profile</Link>
+        <nav className={styles.nav}>
+          <ul>
+            <li className={pathname === "/" ? `${styles.active}` : ``}>
+              <Link to="/">Home</Link>
             </li>
-          )}
-          {!authenticated && (
-            <li className={pathname === "/register" ? `${styles.active}` : ``}>
-              <Link to="/register">Register</Link>
+            <li className={pathname === "/courses" ? `${styles.active}` : ``}>
+              <Link to="/courses">Courses</Link>
             </li>
-          )}
-          {!authenticated && (
-            <li className={pathname === "/login" ? `${styles.active}` : ``}>
-              <Link to="/login">Login</Link>
+            {authenticated && (
+              <li className={pathname === "/profile" ? `${styles.active}` : ``}>
+                <Link to="/profile">Profile</Link>
+              </li>
+            )}
+            {!authenticated && (
+              <li
+                className={pathname === "/register" ? `${styles.active}` : ``}
+              >
+                <Link to="/register">Register</Link>
+              </li>
+            )}
+            {!authenticated && (
+              <li className={pathname === "/login" ? `${styles.active}` : ``}>
+                <Link to="/login">Login</Link>
+              </li>
+            )}
+            {authenticated && (
+              <li onClick={logout}>
+                <Link to="/login">Logout</Link>
+              </li>
+            )}
+          </ul>
+        </nav>
+      </section>
+
+      {menuOpen && (
+        <nav className={styles.mobileNav}>
+          <ul>
+            <li className={pathname === "/" ? `${styles.active}` : ``}>
+              <Link to="/">Home</Link>
             </li>
-          )}
-          {authenticated && (
-            <li onClick={logout}>
-              <Link to="/login">Logout</Link>
+            <li className={pathname === "/courses" ? `${styles.active}` : ``}>
+              <Link to="/courses">Courses</Link>
             </li>
-          )}
-        </ul>
-      </nav>
+            {authenticated && (
+              <li className={pathname === "/profile" ? `${styles.active}` : ``}>
+                <Link to="/profile">Profile</Link>
+              </li>
+            )}
+            {!authenticated && (
+              <li
+                className={pathname === "/register" ? `${styles.active}` : ``}
+              >
+                <Link to="/register">Register</Link>
+              </li>
+            )}
+            {!authenticated && (
+              <li className={pathname === "/login" ? `${styles.active}` : ``}>
+                <Link to="/login">Login</Link>
+              </li>
+            )}
+            {authenticated && (
+              <li onClick={logout}>
+                <Link to="/login">Logout</Link>
+              </li>
+            )}
+          </ul>
+        </nav>
+      )}
     </header>
   );
 }

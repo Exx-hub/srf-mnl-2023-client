@@ -10,8 +10,43 @@
   object-fit: contain;
 }
 
+.menuIcon {
+  cursor: pointer;
+}
+
 .nav {
   display: none;
+}
+
+.mobileNav {
+  padding: 1.1rem;
+  animation: slide-up 500ms ease-in-out;
+}
+
+nav li {
+  list-style: none;
+}
+
+nav a {
+  text-decoration: none;
+  color: #7f7f7f;
+  font-family: "Open Sans", sans-serif;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-size: 0.9rem;
+}
+
+nav .active a {
+  color: #333;
+}
+
+.mobileNav ul li {
+  margin-bottom: 0.6rem;
+}
+
+.mobileNav ul li a {
+  font-size: 0.8rem;
 }
 
 @media screen and (min-width: 768px) {
@@ -32,24 +67,6 @@
     display: flex;
     gap: 1rem;
   }
-
-  .nav li {
-    list-style: none;
-  }
-
-  .nav a {
-    text-decoration: none;
-    color: #7f7f7f;
-    font-family: "Open Sans", sans-serif;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 2px;
-    font-size: 0.9rem;
-  }
-
-  .nav .active a {
-    color: #333;
-  }
 }
 
 @media screen and (min-width: 1200px) {
@@ -58,5 +75,15 @@
   }
   .nav a {
     font-size: 1rem;
+  }
+}
+
+@keyframes slide-up {
+  0% {
+    transform: translateY(-100%);
+  }
+
+  100% {
+    transform: translateY(0%);
   }
 }
