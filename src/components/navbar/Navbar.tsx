@@ -1,7 +1,7 @@
 import styles from "./Navbar.module.css";
 import whiteLogo from "../../assets/images/whiteRec.png";
 import { GrClose, GrMenu } from "react-icons/gr";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import useAuth from "../../hooks/useToken";
 import { useDispatch } from "react-redux";
@@ -11,6 +11,7 @@ import { toast } from "react-toastify";
 function Navbar() {
   const [menuOpen, setMenuOpen] = useState(false);
   const { pathname } = useLocation();
+  const navigate = useNavigate();
   const authenticated = useAuth();
 
   const dispatch = useDispatch();
@@ -24,7 +25,12 @@ function Navbar() {
   return (
     <header>
       <section className={styles.header}>
-        <img className={styles.logo} src={whiteLogo} alt="" />
+        <img
+          className={styles.logo}
+          src={whiteLogo}
+          alt=""
+          onClick={() => navigate("/")}
+        />
 
         <div className={styles.menuIcon} onClick={() => setMenuOpen(!menuOpen)}>
           {menuOpen ? <GrClose /> : <GrMenu />}

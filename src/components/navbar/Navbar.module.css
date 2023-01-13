@@ -8,6 +8,7 @@
   max-width: 105px;
   height: 30px;
   object-fit: contain;
+  cursor: pointer;
 }
 
 .menuIcon {
