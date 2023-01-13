@@ -65,7 +65,10 @@ function Navbar() {
       </section>
 
       {menuOpen && (
-        <nav className={styles.mobileNav}>
+        <nav
+          className={styles.mobileNav}
+          onClick={() => setMenuOpen(!menuOpen)}
+        >
           <ul>
             <li className={pathname === "/" ? `${styles.active}` : ``}>
               <Link to="/">Home</Link>
