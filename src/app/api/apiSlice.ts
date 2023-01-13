@@ -3,7 +3,8 @@ import { RootState } from "../store";
 
 export const apiSlice = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: "http://localhost:8080",
+    baseUrl: "https://srf-mnl-2023-server.vercel.app/",
+    // baseUrl: "http://localhost:8080",
     credentials: "include",
     prepareHeaders: (headers, { getState }) => {
       const token = (getState() as RootState).authState.accessToken;
