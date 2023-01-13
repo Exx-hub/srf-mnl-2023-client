@@ -5,7 +5,7 @@
 }
 
 .userWrapper {
-  width: 50%;
+  width: 85%;
   margin: 0 auto;
 }
 
@@ -24,4 +24,11 @@
 .userContainer li {
   list-style: none;
   margin-bottom: 0.5rem;
+}
+
+@media screen and (min-width: 600px) {
+  .userWrapper {
+    width: 50%;
+    margin: 0 auto;
+  }
 }
