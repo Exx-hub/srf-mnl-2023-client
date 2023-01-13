@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Layout from "./components/Layout/Layout";
 import ProtectedRoute from "./components/protectedRoute";
 import Courses from "./pages/Courses";
@@ -20,6 +20,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
         </Route>
       </Route>
+      <Route path="*" element={<Navigate to={"/"} replace />} />
     </Routes>
   );
 }
